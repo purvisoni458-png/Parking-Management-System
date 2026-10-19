@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkEase | Parking Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="brand">
+            <span class="logo">P</span>
+            <div>
+                <h2>ParkEase</h2>
+                <small>PARKING MANAGEMENT</small>
+            </div>
+        </div>
+
+        <p class="side-label">WORKSPACE</p>
+        <a class="nav active" href="#dashboard">▦ &nbsp; Dashboard</a>
+        <a class="nav" href="#park">＋ &nbsp; Park Vehicle</a>
+        <a class="nav" href="#vehicles">▤ &nbsp; Parked Vehicles</a>
+
+        <div class="sidebar-bottom">● System Ready</div>
+    </aside>
+
+    <main class="main" id="dashboard">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">PARKING OPERATIONS</p>
+                <h1>Dashboard</h1>
+                <p class="subtitle">Manage your parking lot with ease.</p>
+            </div>
+            <div class="date-box" id="todayDate"></div>
+        </header>
+
+        <section class="stats">
+            <div class="stat-card">
+                <p>Total Slots</p>
+                <h2 id="totalSlots">50</h2>
+                <span>Parking capacity</span>
+            </div>
+            <div class="stat-card">
+                <p>Occupied Slots</p>
+                <h2 id="occupiedSlots">0</h2>
+                <span>Vehicles parked</span>
+            </div>
+            <div class="stat-card">
+                <p>Available Slots</p>
+                <h2 id="availableSlots">50</h2>
+                <span>Ready for parking</span>
+            </div>
+            <div class="stat-card">
+                <p>Hourly Rate</p>
+                <h2>₹20</h2>
+                <span>Per hour</span>
+            </div>
+        </section>
+
+        <section class="actions">
+            <div class="panel" id="park">
+                <h2>Park a Vehicle</h2>
+                <p class="description">Enter the vehicle details below.</p>
+
+                <form id="parkForm">
+                    <label for="number">Vehicle Number</label>
+                    <input id="number" type="text"
+                           placeholder="e.g. RJ14 AB 1234" required>
+
+                    <label for="type">Vehicle Type</label>
+                    <select id="type">
+                        <option value="Car">Car</option>
+                        <option value="Bike">Bike</option>
+                    </select>
+
+                    <label for="entryTime">Entry Hour (0–23)</label>
+                    <input id="entryTime" type="number"
+                           min="0" max="23" placeholder="e.g. 10" required>
+
+                    <button type="submit" class="primary-btn">
+                        + Park Vehicle
+                    </button>
+                </form>
+                <p id="parkMessage" class="message"></p>
+            </div>
+
+            <div class="panel">
+                <h2>Remove a Vehicle</h2>
+                <p class="description">Checkout and calculate the parking fee.</p>
+
+                <form id="removeForm">
+                    <label for="exitNumber">Vehicle Number</label>
+                    <input id="exitNumber" type="text"
+                           placeholder="Enter vehicle number" required>
+
+                    <label for="exitTime">Exit Hour (0–23)</label>
+                    <input id="exitTime" type="number"
+                           min="0" max="23" placeholder="e.g. 14" required>
+
+                    <button type="submit" class="secondary-btn">
+                        Checkout Vehicle →
+                    </button>
+                </form>
+                <p id="removeMessage" class="message"></p>
+            </div>
+        </section>
+
+        <section class="panel vehicle-panel" id="vehicles">
+            <div class="table-heading">
+                <div>
+                    <h2>Parked Vehicles</h2>
+                    <p class="description">Vehicles currently in the parking lot.</p>
+                </div>
+                <input id="searchInput" type="search"
+                       placeholder="Search vehicle number...">
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>VEHICLE NUMBER</th>
+                            <th>TYPE</th>
+                            <th>SLOT</th>
+                            <th>ENTRY HOUR</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vehicleRows">
+                        <tr>
+                            <td colspan="5" class="empty">
+                                No vehicles parked yet.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p id="tableCount" class="table-count">Showing 0 vehicles</p>
+        </section>
+
+        <footer>ParkEase · Student Project · Parking Management System</footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
